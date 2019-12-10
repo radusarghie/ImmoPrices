@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Immo.Domain\Immo.Domain.csproj" />
+    <ProjectReference Include="..\Immo.Logic\Immo.Logic.csproj" />
+  </ItemGroup>
+
+</Project>

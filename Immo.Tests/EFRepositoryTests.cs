@@ -1,5 +1,6 @@
 using Immo.Database;
 using Immo.Domain.BusinessDomain;
+using Immo.Logic;
 using Immo.Repositories.EF.Base;
 using Microsoft.EntityFrameworkCore;
 using System;

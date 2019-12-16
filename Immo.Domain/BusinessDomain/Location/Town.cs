@@ -8,6 +8,8 @@ namespace Immo.Domain.BusinessDomain
 
         public string Name { get; set; }
 
+        public string Zip { get; set; }
+
         #region Links
         public Guid ProvinceId { get; set; }
 

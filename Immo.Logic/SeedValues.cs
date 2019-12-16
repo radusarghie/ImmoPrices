@@ -1,10 +1,8 @@
 ﻿using Immo.Domain.BusinessDomain;
-using Immo.Logic;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
-namespace Immo.Database
+namespace Immo.Logic
 {
     public static class SeedValues
     {
@@ -64,6 +62,7 @@ namespace Immo.Database
             {
                 Id = SequentialGuid++.CurrentGuid,
                 Name = "Wemmel",
+                Zip = "1780",
                 ProvinceId = Provinces.FlemishBrabant.Id,
                 CreationDate = DateTime.UtcNow
             };
@@ -72,6 +71,7 @@ namespace Immo.Database
             {
                 Id = SequentialGuid++.CurrentGuid,
                 Name = "Iasi",
+                Zip = "700303",
                 ProvinceId = Provinces.Iasi.Id,
                 CreationDate = DateTime.UtcNow
             };
@@ -83,7 +83,7 @@ namespace Immo.Database
             {
                 Id = SequentialGuid++.CurrentGuid,
                 Name = "Structura",
-                WebsitePropertyUrl = @"http://www.structura.be/kopen/?zips=1780&WebID=2&priceTo=400000&minRooms=2",
+                WebsitePropertyUrl = @"http://www.structura.be/kopen/?zips={1}&WebID={2}&priceTo={3}&minRooms={4}",
                 WebsiteRootUrl = @"http://www.structura.be/",
                 CreationDate = DateTime.UtcNow
             };

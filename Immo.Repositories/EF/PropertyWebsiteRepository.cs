@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿//using Immo.Repositories.EF.Base;
+//using System;
+//using System.Collections.Generic;
+//using System.Text;
 
-namespace Immo.Repositories
-{
-    class PropertyWebsiteRepository
-    {
-    }
-}
+//namespace Immo.Repositories
+//{
+//    public class PropertyWebsiteRepository : EFRepositoryBase<PropertyWebsiteRepository, Guid>
+//    {
+//    }
+//}

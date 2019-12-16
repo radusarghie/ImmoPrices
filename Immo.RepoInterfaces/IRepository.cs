@@ -25,5 +25,7 @@ namespace Immo.RepoInterfaces
 
         void Delete(EntityType entitity);
 
+        void Delete(Func<EntityType, bool> predicate);
+
     }
 }

@@ -10,4 +10,8 @@
     <ProjectReference Include="..\Immo.RepoInterfaces\Immo.RepoInterfaces.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="RepositoryBase\" />
+  </ItemGroup>
+
 </Project>

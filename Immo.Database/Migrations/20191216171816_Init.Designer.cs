@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Immo.Database.Migrations
 {
     [DbContext(typeof(ImmoContext))]
-    [Migration("20191127204755_Init")]
+    [Migration("20191216171816_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,6 +27,12 @@ namespace Immo.Database.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<double?>("Latitude")
                         .HasColumnType("float");
 
@@ -36,6 +42,9 @@ namespace Immo.Database.Migrations
                     b.Property<string>("Number")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid>("PropertyId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Street")
                         .HasColumnType("nvarchar(max)");
 
@@ -43,6 +52,9 @@ namespace Immo.Database.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("PropertyId")
+                        .IsUnique();
 
                     b.HasIndex("TownId");
 
@@ -54,6 +66,12 @@ namespace Immo.Database.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -69,11 +87,14 @@ namespace Immo.Database.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("AgencyId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Html")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<int>("PageNumber")
                         .HasColumnType("int");
@@ -81,7 +102,7 @@ namespace Immo.Database.Migrations
                     b.Property<int>("PageSize")
                         .HasColumnType("int");
 
-                    b.Property<Guid?>("PropertyWebsiteId")
+                    b.Property<Guid>("PropertyWebsiteId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
@@ -95,12 +116,6 @@ namespace Immo.Database.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("AddressId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("AgencyId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int?>("BathroomNo")
@@ -124,6 +139,9 @@ namespace Immo.Database.Migrations
                     b.Property<int?>("ConstructionYear")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
@@ -143,6 +161,9 @@ namespace Immo.Database.Migrations
                         .HasColumnType("bit");
 
                     b.Property<bool?>("HasTerrace")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
                     b.Property<double?>("LivableSurface")
@@ -168,8 +189,6 @@ namespace Immo.Database.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AddressId");
-
                     b.HasIndex("PropertyWebsiteId");
 
                     b.ToTable("Properties");
@@ -180,6 +199,12 @@ namespace Immo.Database.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -204,6 +229,12 @@ namespace Immo.Database.Migrations
                     b.Property<Guid>("CountryId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -214,11 +245,78 @@ namespace Immo.Database.Migrations
                     b.ToTable("Provinces");
                 });
 
+            modelBuilder.Entity("Immo.Domain.BusinessDomain.Search", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<decimal?>("MaxPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int?>("MaxRoomsNo")
+                        .HasColumnType("int");
+
+                    b.Property<decimal?>("MinPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int?>("MinRoomsNo")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Searches");
+                });
+
+            modelBuilder.Entity("Immo.Domain.BusinessDomain.SearchLocation", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid>("SearchId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("TownId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SearchId");
+
+                    b.HasIndex("TownId");
+
+                    b.ToTable("SearchLocations");
+                });
+
             modelBuilder.Entity("Immo.Domain.BusinessDomain.Town", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -242,6 +340,12 @@ namespace Immo.Database.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<string>("UserName")
                         .HasColumnType("nvarchar(max)");
 
@@ -252,6 +356,12 @@ namespace Immo.Database.Migrations
 
             modelBuilder.Entity("Immo.Domain.BusinessDomain.Address", b =>
                 {
+                    b.HasOne("Immo.Domain.BusinessDomain.Property", null)
+                        .WithOne("Address")
+                        .HasForeignKey("Immo.Domain.BusinessDomain.Address", "PropertyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Immo.Domain.BusinessDomain.Town", "Town")
                         .WithMany()
                         .HasForeignKey("TownId")
@@ -263,17 +373,13 @@ namespace Immo.Database.Migrations
                 {
                     b.HasOne("Immo.Domain.BusinessDomain.PropertyWebsite", "PropertyWebsite")
                         .WithMany()
-                        .HasForeignKey("PropertyWebsiteId");
+                        .HasForeignKey("PropertyWebsiteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Immo.Domain.BusinessDomain.Property", b =>
                 {
-                    b.HasOne("Immo.Domain.BusinessDomain.Address", "Address")
-                        .WithMany()
-                        .HasForeignKey("AddressId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Immo.Domain.BusinessDomain.PropertyWebsite", "PropertyWebsite")
                         .WithMany()
                         .HasForeignKey("PropertyWebsiteId");
@@ -284,6 +390,30 @@ namespace Immo.Database.Migrations
                     b.HasOne("Immo.Domain.BusinessDomain.Country", "Country")
                         .WithMany()
                         .HasForeignKey("CountryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Immo.Domain.BusinessDomain.Search", b =>
+                {
+                    b.HasOne("Immo.Domain.BusinessDomain.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Immo.Domain.BusinessDomain.SearchLocation", b =>
+                {
+                    b.HasOne("Immo.Domain.BusinessDomain.Search", "Search")
+                        .WithMany("SeachLocations")
+                        .HasForeignKey("SearchId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Immo.Domain.BusinessDomain.Town", "Town")
+                        .WithMany()
+                        .HasForeignKey("TownId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

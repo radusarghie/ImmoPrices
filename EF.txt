@@ -1,0 +1,26 @@
+dotnet tool install --global dotnet-ef --version 3.0.0
+
+dotnet ef migrations add Init
+
+dotnet ef database update
+
+delete from Addresses
+delete from Properties
+delete from PropertyWebsites
+delete from Towns
+delete from Provinces
+delete from Countries
+delete from SearchLocations
+delete from Searches
+delete from Users
+delete from __EFMigrationsHistory
+
+drop table Addresses
+drop table PropertyWebsites
+drop table Towns
+drop table Provinces
+drop table Countries
+drop table SearchLocations
+drop table Searches
+drop table Users
+drop table __EFMigrationsHistory

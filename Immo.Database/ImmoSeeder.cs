@@ -7,9 +7,12 @@ using System.Text;
 
 namespace Immo.Database
 {
+
+    
     public class ImmoSeeder
     {
         public readonly ImmoContext immoContext;
+        private SequentialGuid SequentialGuid { get; set; } = new SequentialGuid();
 
         public ImmoSeeder(ImmoContext immoContext)
         {
@@ -18,69 +21,95 @@ namespace Immo.Database
 
         public void Seed()
         {
+
             immoContext.Database.EnsureCreated();
 
-            if (!immoContext.Users.Any())
+            SeedUsers(immoContext);
+
+            SeedCountries(immoContext);
+
+            SeedProvinces(immoContext);
+
+            SeedTowns(immoContext);
+
+            SeedPropertyWebsites(immoContext);
+
+            SeedSearches(immoContext);
+
+            SeedProperties(immoContext);
+
+            immoContext.SaveChanges();
+        }
+
+        private void SeedProperties(ImmoContext immoContext)
+        {
+            if (!immoContext.Properties.Any(p => p.Id == SeedValues.Properties.MyApartment.Id))
             {
-                immoContext.Users.Add(new User
-                {
-                    Id = Guid.Empty,
-                    UserName = "rsarghie"
-                });
+                immoContext.Properties.Add(SeedValues.Properties.MyApartment);
             }
 
+        }
 
-            if (!immoContext.Countries.Any())
+        private void SeedSearches(ImmoContext immoContext)
+        {
+            if (!immoContext.Searches.Any(p => p.Id == SeedValues.Searches.DefaultWemmelApartments.Id))
             {
-                immoContext.Countries.Add(new Country
-                {
-                    Id = Guid.Empty,
-                    Name = "Belgium"
-                });
+                immoContext.Searches.Add(SeedValues.Searches.DefaultWemmelApartments); 
+            }
+          
+        }
 
-                immoContext.Countries.Add(new Country
-                {   
-                    Id = Guid.NewGuid(),
-                    Name = "Romania"
-                });
+
+        private void SeedPropertyWebsites(ImmoContext immoContext)
+        {
+            if (!immoContext.PropertyWebsites.Any(p => p.Id == SeedValues.PropertyWebsites.Structura.Id))
+            {
+                immoContext.PropertyWebsites.Add(SeedValues.PropertyWebsites.Structura); ;
+            }
+        }
+
+        private void SeedTowns(ImmoContext immoContext)
+        {
+            if (!immoContext.Towns.Any(p => p.Id == SeedValues.Towns.Wemmel.Id))
+            {
+                immoContext.Towns.Add(SeedValues.Towns.Wemmel); ;
             }
 
-
-            if (!immoContext.Provinces.Any())
+            if (!immoContext.Towns.Any(p => p.Id == SeedValues.Towns.Iasi.Id))
             {
-                immoContext.Provinces.Add(new Province
-                {
-                    Id = Guid.Empty,
-                    Name = "Flemish Brabant",
-                    CountryId = immoContext.Countries.First(p=>p.Name == "Belgium").Id
-                }); ;
-
-                immoContext.Provinces.Add(new Province
-                {
-                    Id = Guid.Empty,
-                    Name = "Iasi",
-                    CountryId = immoContext.Countries.First(p => p.Name == "Romania").Id
-                });
+                immoContext.Towns.Add(SeedValues.Towns.Iasi); ;
             }
+        }
 
-
-            if (!immoContext.Towns.Any())
+        private void SeedProvinces(ImmoContext immoContext)
+        {
+            if (!immoContext.Provinces.Any(p => p.Id == SeedValues.Provinces.FlemishBrabant.Id))
             {
-                immoContext.Towns.Add(new Town
-                {
-                    Id = Guid.Empty,
-                    Name = "Wemmel",
-                    ProvinceId = immoContext.Provinces.First(p => p.Name == "Flemish Brabant").Id
-                }); ;
+                immoContext.Provinces.Add(SeedValues.Provinces.FlemishBrabant); ;
+            }
+            if (!immoContext.Provinces.Any(p => p.Id == SeedValues.Provinces.Iasi.Id))
+            {
+                immoContext.Provinces.Add(SeedValues.Provinces.Iasi); ;
+            }
+        }
 
-                immoContext.Towns.Add(new Town
-                {
-                    Id = GuidExtensions.NextGuid(Guid.Empty),
-                    Name = "Iasi",
-                    ProvinceId = immoContext.Provinces.First(p => p.Name == "Iasi").Id
-                });
+        private void SeedCountries(ImmoContext immoContext)
+        {
+            if (!immoContext.Countries.Any(p => p.Id == SeedValues.Countries.Belgium.Id))
+            {
+                immoContext.Countries.Add(SeedValues.Countries.Belgium);
+            }
+            if (!immoContext.Countries.Any(p => p.Id == SeedValues.Countries.Romania.Id))
+            {
+                immoContext.Countries.Add(SeedValues.Countries.Romania);
+            }
+        }
 
-                immoContext.SaveChanges();
+        private void SeedUsers(ImmoContext immoContext)
+        {
+            if (!immoContext.Users.Any(p => p.Id == SeedValues.Users.Radu.Id))
+            {
+                immoContext.Users.Add(SeedValues.Users.Radu);
             }
         }
     }

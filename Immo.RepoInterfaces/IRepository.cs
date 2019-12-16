@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Immo.RepoInterfaces
 {
@@ -8,10 +9,21 @@ namespace Immo.RepoInterfaces
     {
         void CreateOrUpdate(IEnumerable<EntityType> entities);
 
-        IEnumerable<EntityType> Get(IEnumerable<EntityIdType> ids = null);
+        void CreateOrUpdate(EntityType entity);
 
-        void Delete(IEnumerable<EntityIdType> ids);
+        IQueryable<EntityType> GetByIds(IEnumerable<EntityIdType> ids);
 
-        void Save();
+        EntityType GetById(EntityIdType id);
+
+        IQueryable<EntityType> Where(Func<EntityType, bool> predicate);
+
+        void DeleteByIds(IEnumerable<EntityIdType> ids);
+
+        void DeleteById(EntityIdType id);
+
+        void Delete(IEnumerable<EntityType> entities);
+
+        void Delete(EntityType entitity);
+
     }
 }

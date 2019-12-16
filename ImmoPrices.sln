@@ -15,9 +15,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "50.Immo.Database", "50.Immo
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "60.Immo.Repositories", "60.Immo.Repositories", "{CD72D83D-E3A3-4730-9199-F299E78094E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Immo.Domain", "Immo.Domain\Immo.Domain.csproj", "{02877293-7518-4D0F-861A-6BD35683FD4E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Immo.Domain", "Immo.Domain\Immo.Domain.csproj", "{02877293-7518-4D0F-861A-6BD35683FD4E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Immo.Database", "Immo.Database\Immo.Database.csproj", "{842C18C2-F8B3-4A72-9881-F5B2B8595777}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Immo.Database", "Immo.Database\Immo.Database.csproj", "{842C18C2-F8B3-4A72-9881-F5B2B8595777}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "70.Immo.Services", "70.Immo.Services", "{8013BFD2-4992-4D34-8418-2B50869335C9}"
 EndProject
@@ -25,27 +25,27 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "90.Immo.UI", "90.Immo.UI", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "80.Immo.Testing", "80.Immo.Testing", "{346DF847-AD66-4081-A55B-E4BFFBB17F7F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Immo.RepoInterfaces", "Immo.RepoInterfaces\Immo.RepoInterfaces.csproj", "{AC9A1B2C-A203-46C0-A14E-0689FD5B0FC1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Immo.RepoInterfaces", "Immo.RepoInterfaces\Immo.RepoInterfaces.csproj", "{AC9A1B2C-A203-46C0-A14E-0689FD5B0FC1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Immo.Logic", "Immo.Logic\Immo.Logic.csproj", "{91C0FF3A-ED17-487B-9BBF-A1D0C1E18A26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Immo.Logic", "Immo.Logic\Immo.Logic.csproj", "{91C0FF3A-ED17-487B-9BBF-A1D0C1E18A26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Immo.ServiceInterfaces", "Immo.ServiceInterfaces\Immo.ServiceInterfaces.csproj", "{48CE4D96-10A8-461F-A37A-CC12A4A66548}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Immo.ServiceInterfaces", "Immo.ServiceInterfaces\Immo.ServiceInterfaces.csproj", "{48CE4D96-10A8-461F-A37A-CC12A4A66548}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Immo.Repositories", "Immo.Repositories\Immo.Repositories.csproj", "{35500442-0924-471A-A7ED-EF4AA7EA658C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Immo.Repositories", "Immo.Repositories\Immo.Repositories.csproj", "{35500442-0924-471A-A7ED-EF4AA7EA658C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Immo.Tests", "Immo.Tests\Immo.Tests.csproj", "{3357786B-11D3-49DA-BCF4-797301E6DFAD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Immo.Tests", "Immo.Tests\Immo.Tests.csproj", "{3357786B-11D3-49DA-BCF4-797301E6DFAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Immo.UI", "Immo.UI\Immo.UI.csproj", "{FA009EB2-2EA4-4850-9C1D-82B907E3528B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Immo.UI", "Immo.UI\Immo.UI.csproj", "{FA009EB2-2EA4-4850-9C1D-82B907E3528B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Immo.DTOs", "Immo.DTOs\Immo.DTOs.csproj", "{336EDBF4-BAE6-4DDA-BAAF-A37FE140E22C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Immo.DTOs", "Immo.DTOs\Immo.DTOs.csproj", "{336EDBF4-BAE6-4DDA-BAAF-A37FE140E22C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Immo.ConsoleTests", "Immo.ConsoleTests\Immo.ConsoleTests.csproj", "{862304B8-4D1D-4E2F-96E7-0707EC59B5EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Immo.ConsoleTests", "Immo.ConsoleTests\Immo.ConsoleTests.csproj", "{862304B8-4D1D-4E2F-96E7-0707EC59B5EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Immo.Services", "Immo.Services\Immo.Services.csproj", "{1CB460C3-CB66-4F9D-82C0-85D756D8E3EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Immo.Services", "Immo.Services\Immo.Services.csproj", "{1CB460C3-CB66-4F9D-82C0-85D756D8E3EA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Commands", "Commands", "{E3173140-E12A-4B39-8B4F-F82EC05355D2}"
 	ProjectSection(SolutionItems) = preProject
-		InstallEF.txt = InstallEF.txt
+		EF.txt = EF.txt
 	EndProjectSection
 EndProject
 Global

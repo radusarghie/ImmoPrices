@@ -20,6 +20,8 @@ namespace Immo.Domain.BusinessDomain
         public Guid TownId { get; set; }
 
         public Town Town { get; set; }
+
+        public Guid PropertyId { get; set; }
         #endregion
     }
 }

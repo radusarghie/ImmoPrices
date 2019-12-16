@@ -26,6 +26,9 @@ namespace Immo.Database
         public DbSet<Property> Properties { get; set; }
         public DbSet<User> Users { get; set; }
 
+        public DbSet<Search> Searches { get; set; }
+
+        public DbSet<SearchLocation> SearchLocations { get; set; }
         //protected override void OnConfiguring(DbContextOptionsBuilder options)
         //   => options
         //    .UseSqlServer("Data Source=RADU-LAPTOP-BE\\SQLEXPRESS;Database=Immo;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");

@@ -49,11 +49,8 @@ namespace Immo.Domain.BusinessDomain
         public string OriginalURL { get; set; }
 
         #region Links
-        public Guid PropertyWebsiteId { get; set; }
 
         public PropertyWebsite PropertyWebsite { get; set; }
-
-        public Guid AddressId { get; set; }
 
         public Address Address { get; set; }
 

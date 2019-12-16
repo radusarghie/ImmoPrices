@@ -11,5 +11,11 @@ namespace Immo.Domain
             Ground = 30
         }
 
+        public enum AddyTypeEnum
+        {
+            ForSale = 10,
+            ForRent = 20,
+        }
+
     }
 }

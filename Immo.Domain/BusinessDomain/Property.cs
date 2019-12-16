@@ -10,6 +10,8 @@ namespace Immo.Domain.BusinessDomain
     {
         public PropertyTypeEnum? PropertyType { get; set; }
 
+        public AddyTypeEnum AddType { get; set; }
+
         public int? ConstructionYear { get; set; }
 
         public int? BedroomsNo { get; set; }

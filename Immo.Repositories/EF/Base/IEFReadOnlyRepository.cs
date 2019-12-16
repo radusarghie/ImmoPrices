@@ -1,4 +1,5 @@
-﻿using Immo.RepoInterfaces;
+﻿using Immo.Database;
+using Immo.RepoInterfaces;
 
 namespace Immo.Repositories.EF.Base
 {

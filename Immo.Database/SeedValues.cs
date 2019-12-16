@@ -77,14 +77,13 @@ namespace Immo.Database
             };
         }
 
-
         public static class PropertyWebsites
         {
             public static PropertyWebsite Structura = new PropertyWebsite
             {
                 Id = SequentialGuid++.CurrentGuid,
                 Name = "Structura",
-                WebsitePropertyUrl = @"http://www.structura.be/",
+                WebsitePropertyUrl = @"http://www.structura.be/kopen/?zips=1780&WebID=2&priceTo=400000&minRooms=2",
                 WebsiteRootUrl = @"http://www.structura.be/",
                 CreationDate = DateTime.UtcNow
             };

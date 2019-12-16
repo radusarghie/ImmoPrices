@@ -8,16 +8,16 @@ namespace Immo.Repositories.EF.Base
 {
     public class EFReadOnlyRepositoryBase<EntityType, EntityIdType> : IEFReadOnlyRepository<EntityType, EntityIdType> where EntityType : Entity<EntityIdType>
     {
-        protected readonly ImmoContext dbContext;
+        protected readonly ImmoContext DbContext;
 
         public EFReadOnlyRepositoryBase(ImmoContext dbContext)
         {
-            this.dbContext = dbContext;
+            this.DbContext = dbContext;
         }
 
         public IEnumerable<EntityType> Where(Func<EntityType, bool> predicate)
         {
-            return dbContext.Set<EntityType>().Where(predicate);
+            return DbContext.Set<EntityType>().Where(predicate);
         }
      
         public IEnumerable<EntityType> GetByIds(IEnumerable<EntityIdType> ids)

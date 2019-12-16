@@ -17,24 +17,24 @@ namespace Immo.Repositories.EF.Base
         {
             foreach (var entity in entities)
             {
-                if (GetByIds(new List<EntityIdType> { entity.Id })!=null && dbContext.Entry(entity).State != Microsoft.EntityFrameworkCore.EntityState.Detached)
+                if (GetByIds(new List<EntityIdType> { entity.Id })!=null && DbContext.Entry(entity).State != Microsoft.EntityFrameworkCore.EntityState.Detached)
                 {
-                    dbContext.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                    DbContext.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                 }
                 else 
                 {
-                    dbContext.Set<EntityType>().AddRange(entities);
+                    DbContext.Set<EntityType>().AddRange(entities);
                 }
             }
           
-            dbContext.SaveChanges();
+            DbContext.SaveChanges();
         }
 
      
         private void Delete(IEnumerable<EntityType> entities)
         {
-            dbContext.Set<EntityType>().RemoveRange(entities);
-            dbContext.SaveChanges();
+            DbContext.Set<EntityType>().RemoveRange(entities);
+            DbContext.SaveChanges();
         }
 
         public void DeleteByIds(IEnumerable<EntityIdType> ids)

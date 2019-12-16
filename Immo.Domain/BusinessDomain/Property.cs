@@ -49,7 +49,7 @@ namespace Immo.Domain.BusinessDomain
         public string OriginalURL { get; set; }
 
         #region Links
-        public Guid AgencyId { get; set; }
+        public Guid PropertyWebsiteId { get; set; }
 
         public PropertyWebsite PropertyWebsite { get; set; }
 

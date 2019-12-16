@@ -145,7 +145,8 @@ namespace Immo.Database
                     Latitude = 50.9009335,
                     Longitude = 4.3292941
 
-                }
+                },
+                AddType = Domain.Enums.AddyTypeEnum.ForSale
             };
         }
 

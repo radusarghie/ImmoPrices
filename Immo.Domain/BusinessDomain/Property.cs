@@ -1,6 +1,4 @@
-﻿using Immo.Domain.Interfaces;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using static Immo.Domain.Enums;
 
 namespace Immo.Domain.BusinessDomain

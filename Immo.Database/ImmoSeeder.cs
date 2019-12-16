@@ -8,11 +8,9 @@ using System.Text;
 namespace Immo.Database
 {
 
-    
     public class ImmoSeeder
     {
-        public readonly ImmoContext immoContext;
-        private SequentialGuid SequentialGuid { get; set; } = new SequentialGuid();
+        private readonly ImmoContext immoContext;
 
         public ImmoSeeder(ImmoContext immoContext)
         {

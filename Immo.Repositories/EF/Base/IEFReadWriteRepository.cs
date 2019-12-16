@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Immo.Repositories.EF.Base
 {
-    public interface  IEFRepository<EntityType, EntityIdType> : IRepository<EntityType, EntityIdType>
+    public interface  IEFReadWriteRepository<EntityType, EntityIdType> : IReadWriteRepository<EntityType, EntityIdType>
     {
        
     }

@@ -6,6 +6,7 @@ namespace Immo.Domain.BusinessDomain
 {
     public class Search : Entity<Guid>
     {
+        public AddyTypeEnum AddyType { get; set; }
         public decimal? MinPrice { get; set; }
 
         public decimal? MaxPrice { get; set; }

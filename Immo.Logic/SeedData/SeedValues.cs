@@ -99,6 +99,7 @@ namespace Immo.Logic.SeedData
                 MaxPrice = 400000,
                 MinRoomsNo = 2,
                 CreationDate = DateTime.UtcNow,
+                AddyType = Domain.Enums.AddyTypeEnum.ForSale,
                 SeachLocations  = new List<SearchLocation>
                 {
                     new SearchLocation

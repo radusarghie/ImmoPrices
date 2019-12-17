@@ -13,9 +13,9 @@ namespace Immo.Services.PropertyWebsiteParser
     {
         protected abstract string GetSearchUrl(Search search, PropertyWebsite propertyWebsite);
 
-        protected abstract IEnumerable<string> GetPropertiesHtmls(string baseUrl);
+        protected abstract Dictionary<string, string> GetPropertiesHtmls(string baseUrl);
 
-        protected abstract Property GetPropertyFromDetailsHtml(string html);
+        protected abstract Property GetPropertyFromDetailsHtml(string originalUrl, string html, Search search, PropertyWebsite propertyWebsite);
 
         protected IEnumerable<Property> SaveProperties(IEnumerable<Property> properties)
         {
@@ -35,9 +35,9 @@ namespace Immo.Services.PropertyWebsiteParser
 
             var propertiesHtmls = GetPropertiesHtmls(url);
 
-            var properties = propertiesHtmls.Select(p => GetPropertyFromDetailsHtml(p));
+            var properties = propertiesHtmls.Select(p => GetPropertyFromDetailsHtml(p.Key, p.Value, search, propertyWebsite));
 
-            properties = SaveProperties(properties);
+            //properties = SaveProperties(properties);
 
             return properties;
         }

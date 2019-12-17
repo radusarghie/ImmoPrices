@@ -140,7 +140,8 @@ namespace Immo.Logic.SeedData
                 Number = "5",
                 Latitude = 50.9009335,
                 Longitude = 4.3292941,
-                AddType = Domain.Enums.AddyTypeEnum.ForSale
+                AddType = Domain.Enums.AddyTypeEnum.ForSale,
+                Title = "My House"
             };
         }
 

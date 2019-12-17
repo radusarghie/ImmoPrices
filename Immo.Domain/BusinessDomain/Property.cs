@@ -56,6 +56,7 @@ namespace Immo.Domain.BusinessDomain
 
         public double? Longitude { get; set; }
 
+        public string Title { get; set; }
         #region Links
 
         public Guid? TownId { get; set; }

@@ -1,0 +1,746 @@
+﻿<!doctype html>
+<html lang="nl" prefix="og: http://ogp.me/ns#">
+<head>
+
+</head>
+<body class="page-template page-template-template-overview page-template-template-overview-php page page-id-231 kopen sidebar-primary lang-nl">
+<!--[if IE]>
+<div class="alert alert-warning">
+You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+<header id="top-bar">
+<div class="container-fluid">
+<nav id="languages">
+<ul>
+<li class="lang lang-current">
+<span>NL</span>
+</li>
+<li class="lang lang-fr">
+<a href="https://www.structura.be/fr/a-vendre/" hreflang="fr" title="Français">FR</a>
+</li>
+</ul>
+</nav>
+<nav id="secondary">
+<ul id="menu-secundair-menu" class="top-menu">
+<li class="menu-item menu-over-ons">
+<a href="https://www.structura.be/over-ons/">Over ons</a>
+</li>
+<li class="menu-item menu-kantoren">
+<a href="https://www.structura.be/kantoren/">Kantoren</a>
+</li>
+<li class="menu-item menu-contact">
+<a href="https://www.structura.be/contact/">Contact</a>
+</li>
+</ul>
+</nav>
+</div>
+</header>
+<header class="banner">
+<div class="container-fluid">
+<div class="row">
+<div class="col-sm-4 col-md-3">
+<a class="brand" href="https://www.structura.be/">
+<img src="http://www.structura.be/app/themes/structura/dist/images/structura.png" class="img-responsive">
+<small>GEEF UW DROOM EEN THUIS</small>
+</a>
+</div>
+<div class="col-sm-8 col-md-9">
+<a class="open-menu" href="javascript:void(null);">
+<span class="fa fa-bars"/>
+<span class="sr-only">Menu uitklappen</span>
+</a>
+<nav id="primary">
+<a class="close-menu" href="javascript:void(null);">
+<span class="fa fa-close"/>
+<span class="sr-only">Menu uitklappen</span>
+</a>
+<div class="mobile-logo">
+<img src="http://www.structura.be/app/themes/structura/dist/images/structura.png" class="img-responsive">
+</div>
+<ul id="primary-navigation" class="menu">
+<li class="menu-item menu-nieuwbouw">
+<a href="https://www.structura.be/nieuwbouw/">Nieuwbouw</a>
+</li>
+<li class="active menu-item menu-kopen">
+<a href="https://www.structura.be/kopen/">Kopen</a>
+</li>
+<li class="menu-item menu-huren">
+<a href="https://www.structura.be/huren/">Huren</a>
+</li>
+<li class="menu-item menu-verkopen">
+<a href="https://www.structura.be/verkopen/">Verkopen</a>
+</li>
+<li class="menu-item menu-verhuren">
+<a href="https://www.structura.be/verhuren/">Verhuren</a>
+</li>
+<li class="menu-item menu-advies">
+<a href="https://www.structura.be/immoadvies/">Advies</a>
+</li>
+</ul>
+<a class="btn btn-primary newsletter-button" href="https://www.structura.be/nieuwsbrief/">
+<span class="fa fa-newspaper-o" aria-hidden="true"/> Inschrijven</a>
+</nav>
+</div>
+</div>
+</div>
+</header>
+<section id="overview-search">
+<div class="container-fluid">
+<form action="" method="get" id="searchForm" class="form-inline" data-search="#zips">
+<input type="text" class="form-control input-lg" id="zips" name="zips" placeholder="Gemeente, referentie, postcode, ...">
+<select class="form-control input-lg" name="WebID">
+<option value="1" >Woningen</option>
+<option value="2" >Appartementen</option>
+<option value="3" >Gronden</option>
+<option value="4" >Garages</option>
+<option value="5" >Kantoren/Winkelruimtes</option>
+<option value="7" >Opbrengsteigendommen</option>
+</select>
+<input type="number" name="priceTo" class="form-control input-lg" value="400000" min="0" step="200" placeholder="Max. prijs"/>
+<input type="number" name="minRooms" class="form-control input-lg" value="2" min="0" placeholder="Min. slaapkamers"/>
+<button type="submit" class="btn btn-lg btn-default">
+<i class="fa fa-search"/>
+</button>
+</form>
+</div>
+</section>
+<section id="overview-results">
+<div class="container-fluid">
+<p class="lead">Structura zoekt tussen een aanbod van <span>537</span> woningen</p>
+
+<div class="result-list">
+<div class="controls">
+Sorteer op
+<ul class="sort-by">
+<li class=" asc">
+<a href="/kopen/?zips=1780&priceTo=400000&minRooms=2&orderby=ID&order=desc">Meest recent</a>
+</li>
+<li class=" asc">
+<a href="/kopen/?zips=1780&priceTo=400000&minRooms=2&orderby=Price&order=desc">Prijs</a>
+</li>
+<li class=" asc">
+<a href="/kopen/?zips=1780&priceTo=400000&minRooms=2&orderby=City&order=desc">Gemeente</a>
+</li>
+</ul>
+</div>
+<div class="property-list">
+<div class="row">
+<div class="col-sm-6 col-md-4">
+<div class="teaser teaser-property">
+<figure>
+<a href="https://www.structura.be/pand/id/1780846/">
+<img src="https://objectstorage.omnicasa.com/structura.public/1780846AL.jpg" class="img-responsive">
+</a>
+</figure>
+
+<header>
+<h3>
+<a href="https://www.structura.be/pand/id/1780846/">WEMMEL</a>
+</h3>
+<small>appartement</small>
+</header>
+<footer>
+<div class="left">
+<span class="property-price">&euro; 229.000</span>
+</div>
+<div class="right">
+<i class="fa fa-bed" aria-hidden="true"/> 2      <img src="http://www.structura.be/app/themes/structura/dist/images/surface-icon-1.png" width="20"> 78 m<sup>2</sup>
+</div>
+</footer>
+</div>
+</div>
+<div class="col-sm-6 col-md-4">
+<div class="teaser teaser-property">
+<figure>
+<a href="https://www.structura.be/pand/id/1780841/">
+<img src="https://objectstorage.omnicasa.com/structura.public/1780841AL.jpg" class="img-responsive">
+</a>
+</figure>
+
+<header>
+<h3>
+<a href="https://www.structura.be/pand/id/1780841/">WEMMEL</a>
+</h3>
+<small>appartement</small>
+</header>
+<footer>
+<div class="left">
+<span class="property-price">
+&euro; 330.000      </span>
+</div>
+<div class="right">
+<i class="fa fa-bed" aria-hidden="true"/> 2      <img src="http://www.structura.be/app/themes/structura/dist/images/surface-icon-1.png" width="20"> 113 m<sup>2</sup>
+</div>
+</footer>
+</div>
+</div>
+<div class="col-sm-6 col-md-4">
+<div class="teaser teaser-property">
+<figure>
+<a href="https://www.structura.be/pand/id/1780840/">
+<img src="https://objectstorage.omnicasa.com/structura.public/1780840AL.jpg" class="img-responsive">
+</a>
+</figure>
+
+<header>
+<h3>
+<a href="https://www.structura.be/pand/id/1780840/">WEMMEL</a>
+</h3>
+<small>appartement</small>
+</header>
+<footer>
+<div class="left">
+<span class="property-price">
+&euro; 250.000      </span>
+</div>
+<div class="right">
+<i class="fa fa-bed" aria-hidden="true"/> 2      <img src="http://www.structura.be/app/themes/structura/dist/images/surface-icon-1.png" width="20"> 83 m<sup>2</sup>
+</div>
+</footer>
+</div>
+</div>
+<div class="col-sm-6 col-md-4">
+<div class="teaser teaser-property">
+<figure>
+<a href="https://www.structura.be/pand/id/1780824/">
+<img src="https://objectstorage.omnicasa.com/structura.public/1780824AL.jpg" class="img-responsive">
+</a>
+</figure>
+
+<header>
+<h3>
+<a href="https://www.structura.be/pand/id/1780824/">WEMMEL</a>
+</h3>
+<small>appartement</small>
+</header>
+<footer>
+<div class="left">
+<span class="property-price">
+&euro; 190.000      </span>
+</div>
+<div class="right">
+<i class="fa fa-bed" aria-hidden="true"/> 1      <img src="http://www.structura.be/app/themes/structura/dist/images/surface-icon-1.png" width="20"> 65.5 m<sup>2</sup>
+</div>
+</footer>
+</div>
+</div>
+<div class="col-sm-6 col-md-4">
+<div class="teaser teaser-property">
+<figure>
+<a href="https://www.structura.be/pand/id/1780529/">
+<img src="https://objectstorage.omnicasa.com/structura.public/1780529AL.jpg" class="img-responsive">
+</a>
+</figure>
+
+<header>
+<h3>
+<a href="https://www.structura.be/pand/id/1780529/">WEMMEL</a>
+</h3>
+<small>handel-kantoor-opbrengst</small>
+</header>
+<footer>
+<div class="left">
+<span class="property-price">
+&euro; 216.000      </span>
+</div>
+<div class="right">
+<i class="fa fa-bed" aria-hidden="true"/> 0      <img src="http://www.structura.be/app/themes/structura/dist/images/surface-icon-1.png" width="20"> 120 m<sup>2</sup>
+</div>
+</footer>
+</div>
+</div>
+<div class="col-sm-6 col-md-4">
+<div class="teaser teaser-property">
+<figure>
+<a href="https://www.structura.be/pand/id/1780527/">
+<img src="https://objectstorage.omnicasa.com/structura.public/1780527AL.jpg" class="img-responsive">
+</a>
+</figure>
+
+<header>
+<h3>
+<a href="https://www.structura.be/pand/id/1780527/">WEMMEL</a>
+</h3>
+<small>appartement</small>
+</header>
+<footer>
+<div class="left">
+<span class="property-price">
+&euro; 259.000      </span>
+</div>
+<div class="right">
+<i class="fa fa-bed" aria-hidden="true"/> 2      <img src="http://www.structura.be/app/themes/structura/dist/images/surface-icon-1.png" width="20"> 90 m<sup>2</sup>
+</div>
+</footer>
+</div>
+</div>
+<div class="col-sm-6 col-md-4">
+<div class="teaser teaser-property">
+<figure>
+<a href="https://www.structura.be/pand/id/1780525/">
+<img src="https://objectstorage.omnicasa.com/structura.public/1780525AL.jpg" class="img-responsive">
+</a>
+</figure>
+
+<header>
+<h3>
+<a href="https://www.structura.be/pand/id/1780525/">WEMMEL</a>
+</h3>
+<small>appartement</small>
+</header>
+<footer>
+<div class="left">
+<span class="property-price">
+&euro; 249.000      </span>
+</div>
+<div class="right">
+<i class="fa fa-bed" aria-hidden="true"/> 2      <img src="http://www.structura.be/app/themes/structura/dist/images/surface-icon-1.png" width="20"> 102 m<sup>2</sup>
+</div>
+</footer>
+</div>
+</div>
+<div class="col-sm-6 col-md-4">
+<div class="teaser teaser-property">
+<figure>
+<a href="https://www.structura.be/pand/id/1780524/">
+<img src="https://objectstorage.omnicasa.com/structura.public/1780524AL.jpg" class="img-responsive">
+</a>
+</figure>
+
+<header>
+<h3>
+<a href="https://www.structura.be/pand/id/1780524/">WEMMEL</a>
+</h3>
+<small>appartement</small>
+</header>
+<footer>
+<div class="left">
+<span class="property-price">
+&euro; 239.000      </span>
+</div>
+<div class="right">
+<i class="fa fa-bed" aria-hidden="true"/> 2      <img src="http://www.structura.be/app/themes/structura/dist/images/surface-icon-1.png" width="20"> 88.5 m<sup>2</sup>
+</div>
+</footer>
+</div>
+</div>
+<div class="col-sm-6 col-md-4">
+<div class="teaser teaser-property">
+<figure>
+<a href="https://www.structura.be/pand/id/1780474/">
+<img src="https://objectstorage.omnicasa.com/structura.public/1780474AL.jpg" class="img-responsive">
+</a>
+</figure>
+
+<header>
+<h3>
+<a href="https://www.structura.be/pand/id/1780474/">WEMMEL</a>
+</h3>
+<small>appartement</small>
+</header>
+<footer>
+<div class="left">
+<span class="property-price">
+&euro; 265.000      </span>
+</div>
+<div class="right">
+<i class="fa fa-bed" aria-hidden="true"/> 2      <img src="http://www.structura.be/app/themes/structura/dist/images/surface-icon-1.png" width="20"> 99.59 m<sup>2</sup>
+</div>
+</footer>
+</div>
+</div>
+<div class="col-sm-6 col-md-4">
+<div class="teaser teaser-property">
+<figure>
+<a href="https://www.structura.be/pand/id/1780385/">
+<img src="https://objectstorage.omnicasa.com/structura.public/1780385AL.jpg" class="img-responsive">
+</a>
+</figure>
+
+<header>
+<h3>
+<a href="https://www.structura.be/pand/id/1780385/">WEMMEL</a>
+</h3>
+<small>opbrengsteigendom</small>
+</header>
+<footer>
+<div class="left">
+<span class="property-price">
+&euro; 310.000      </span>
+</div>
+<div class="right">
+<i class="fa fa-bed" aria-hidden="true"/> 2      <img src="http://www.structura.be/app/themes/structura/dist/images/surface-icon-1.png" width="20"> 118 m<sup>2</sup>
+</div>
+</footer>
+</div>
+</div>
+<div class="col-sm-6 col-md-4">
+<div class="teaser teaser-property">
+<figure>
+<a href="https://www.structura.be/pand/id/1780384/">
+<img src="https://objectstorage.omnicasa.com/structura.public/1780384AL.jpg" class="img-responsive">
+</a>
+</figure>
+
+<header>
+<h3>
+<a href="https://www.structura.be/pand/id/1780384/">WEMMEL</a>
+</h3>
+<small>woning</small>
+</header>
+<footer>
+<div class="left">
+<span class="property-price">
+&euro; 284.000      </span>
+</div>
+<div class="right">
+<i class="fa fa-bed" aria-hidden="true"/> 3      <img src="http://www.structura.be/app/themes/structura/dist/images/surface-icon-1.png" width="20"> 181 m<sup>2</sup>
+</div>
+</footer>
+</div>
+</div>
+<div class="col-sm-6 col-md-4">
+<div class="teaser teaser-property">
+<figure>
+<a href="https://www.structura.be/pand/id/1779713/">
+<img src="https://objectstorage.omnicasa.com/structura.public/1779713AL.jpg" class="img-responsive">
+</a>
+</figure>
+
+<header>
+<h3>
+<a href="https://www.structura.be/pand/id/1779713/">WEMMEL</a>
+</h3>
+<small>appartement</small>
+</header>
+<footer>
+<div class="left">
+<span class="property-price">
+&euro; 272.710      </span>
+</div>
+<div class="right">
+<i class="fa fa-bed" aria-hidden="true"/> 3      <img src="http://www.structura.be/app/themes/structura/dist/images/surface-icon-1.png" width="20"> 97 m<sup>2</sup>
+</div>
+</footer>
+</div>
+</div>
+<div class="col-sm-6 col-md-4">
+<div class="teaser teaser-property">
+<figure>
+<img src="https://objectstorage.omnicasa.com/structura.public/1780678AL.jpg" class="img-responsive">
+</figure>
+
+<header>
+<h3>
+WEMMEL          </h3>
+<small>woning</small>
+</header>
+<footer>
+<div class="left">
+<span class="property-price">
+<em class="text-danger">Verkocht</em>
+</span>
+</div>
+<div class="right">
+<i class="fa fa-bed" aria-hidden="true"/> 3      <img src="http://www.structura.be/app/themes/structura/dist/images/surface-icon-1.png" width="20"> 185 m<sup>2</sup>
+</div>
+</footer>
+</div>
+</div>
+<div class="col-sm-6 col-md-4">
+<div class="teaser teaser-property">
+<figure>
+<img src="https://objectstorage.omnicasa.com/structura.public/1780675AL.jpg" class="img-responsive">
+</figure>
+
+<header>
+<h3>
+WEMMEL          </h3>
+<small>appartement</small>
+</header>
+<footer>
+<div class="left">
+<span class="property-price">
+<em class="text-danger">Verkocht</em>
+</span>
+</div>
+<div class="right">
+<i class="fa fa-bed" aria-hidden="true"/> 2      <img src="http://www.structura.be/app/themes/structura/dist/images/surface-icon-1.png" width="20"> 132 m<sup>2</sup>
+</div>
+</footer>
+</div>
+</div>
+<div class="col-sm-6 col-md-4">
+<div class="teaser teaser-property">
+<figure>
+<img src="https://objectstorage.omnicasa.com/structura.public/1780653AL.jpg" class="img-responsive">
+</figure>
+
+<header>
+<h3>
+WEMMEL          </h3>
+<small>handelsgelijkvloers</small>
+</header>
+<footer>
+<div class="left">
+<span class="property-price">
+<em class="text-danger">Verkocht</em>
+</span>
+</div>
+<div class="right">
+<i class="fa fa-bed" aria-hidden="true"/> 0      <img src="http://www.structura.be/app/themes/structura/dist/images/surface-icon-1.png" width="20"> 135 m<sup>2</sup>
+</div>
+</footer>
+</div>
+</div>
+<div class="col-sm-6 col-md-4">
+<div class="teaser teaser-property">
+<figure>
+<img src="https://objectstorage.omnicasa.com/structura.public/1780642AL.jpg" class="img-responsive">
+</figure>
+
+<header>
+<h3>
+WEMMEL          </h3>
+<small>appartement</small>
+</header>
+<footer>
+<div class="left">
+<span class="property-price">
+<em class="text-danger">Verkocht</em>
+</span>
+</div>
+<div class="right">
+<i class="fa fa-bed" aria-hidden="true"/> 2      <img src="http://www.structura.be/app/themes/structura/dist/images/surface-icon-1.png" width="20"> 77 m<sup>2</sup>
+</div>
+</footer>
+</div>
+</div>
+<div class="col-sm-6 col-md-4">
+<div class="teaser teaser-property">
+<figure>
+<img src="https://objectstorage.omnicasa.com/structura.public/1780641AL.jpg" class="img-responsive">
+</figure>
+
+<header>
+<h3>
+WEMMEL          </h3>
+<small>appartement</small>
+</header>
+<footer>
+<div class="left">
+<span class="property-price">
+<em class="text-danger">Verkocht</em>
+</span>
+</div>
+<div class="right">
+<i class="fa fa-bed" aria-hidden="true"/> 2      <img src="http://www.structura.be/app/themes/structura/dist/images/surface-icon-1.png" width="20"> 102 m<sup>2</sup>
+</div>
+</footer>
+</div>
+</div>
+<div class="col-sm-6 col-md-4">
+<div class="teaser teaser-property">
+<figure>
+<img src="https://objectstorage.omnicasa.com/structura.public/1780528AL.jpg" class="img-responsive">
+</figure>
+
+<header>
+<h3>
+WEMMEL          </h3>
+<small>appartement</small>
+</header>
+<footer>
+<div class="left">
+<span class="property-price">
+<em class="text-danger">Verkocht</em>
+</span>
+</div>
+<div class="right">
+<i class="fa fa-bed" aria-hidden="true"/> 1      <img src="http://www.structura.be/app/themes/structura/dist/images/surface-icon-1.png" width="20"> 58 m<sup>2</sup>
+</div>
+</footer>
+</div>
+</div>
+<div class="col-sm-6 col-md-4">
+<div class="teaser teaser-property">
+<figure>
+<img src="https://objectstorage.omnicasa.com/structura.public/1780526AL.jpg" class="img-responsive">
+</figure>
+
+<header>
+<h3>
+WEMMEL          </h3>
+<small>appartement</small>
+</header>
+<footer>
+<div class="left">
+<span class="property-price">
+<em class="text-danger">Verkocht</em>
+</span>
+</div>
+<div class="right">
+<i class="fa fa-bed" aria-hidden="true"/> 2      <img src="http://www.structura.be/app/themes/structura/dist/images/surface-icon-1.png" width="20"> 129 m<sup>2</sup>
+</div>
+</footer>
+</div>
+</div>
+<div class="col-sm-6 col-md-4">
+<div class="teaser teaser-property">
+<figure>
+<img src="https://objectstorage.omnicasa.com/structura.public/1780214AL.jpg" class="img-responsive">
+</figure>
+
+<header>
+<h3>
+WEMMEL          </h3>
+<small>woning</small>
+</header>
+<footer>
+<div class="left">
+<span class="property-price">
+<em class="text-danger">Verkocht</em>
+</span>
+</div>
+<div class="right">
+<i class="fa fa-bed" aria-hidden="true"/> 4      <img src="http://www.structura.be/app/themes/structura/dist/images/surface-icon-1.png" width="20"> 200 m<sup>2</sup>
+</div>
+</footer>
+</div>
+</div>
+<div class="col-sm-6 col-md-4">
+<div class="teaser teaser-property">
+<figure>
+<img src="https://objectstorage.omnicasa.com/structura.public/1779712AL.jpg" class="img-responsive">
+</figure>
+
+<header>
+<h3>
+WEMMEL          </h3>
+<small>appartement</small>
+</header>
+<footer>
+<div class="left">
+<span class="property-price">
+<em class="text-danger">Verkocht</em>
+</span>
+</div>
+<div class="right">
+<i class="fa fa-bed" aria-hidden="true"/> 2      <img src="http://www.structura.be/app/themes/structura/dist/images/surface-icon-1.png" width="20"> 90 m<sup>2</sup>
+</div>
+</footer>
+</div>
+</div>
+<div class="col-sm-6 col-md-4">
+<div class="teaser teaser-property">
+<figure>
+<img src="https://objectstorage.omnicasa.com/structura.public/1779711AL.jpg" class="img-responsive">
+</figure>
+
+<header>
+<h3>
+WEMMEL          </h3>
+<small>appartement</small>
+</header>
+<footer>
+<div class="left">
+<span class="property-price">
+<em class="text-danger">Verkocht</em>
+</span>
+</div>
+<div class="right">
+<i class="fa fa-bed" aria-hidden="true"/> 2      <img src="http://www.structura.be/app/themes/structura/dist/images/surface-icon-1.png" width="20"> 81 m<sup>2</sup>
+</div>
+</footer>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="spotlight-cta" class="primary">
+<div class="container-fluid">
+<div class="row">
+<div class="col-sm-6">
+<header>
+<h2>Zet ook uw pand in de kijker</h2>
+</header>
+<div class="content">
+<p class="lead">Structura zorgt voor een uitstekende service.</p>
+<p class="lead">Ontdek hier wat <strong>uw voordelen</strong> zijn en maak meteen <strong>een afspraak</strong>!</p>
+</div>
+<footer>
+<a class="btn btn-transparent btn-lg" href="https://www.structura.be/over-ons/">Waarom Structura?</a>
+<a class="btn btn-transparent btn-lg" href="https://www.structura.be/contact/">Maak een afspraak</a>
+</footer>
+</div>
+</div>
+</div>
+</section>
+
+<footer id="doormat" class="black">
+<div class="container-fluid">
+<div class="row">
+<div class="col-sm-4">
+<figure>
+<img src="http://www.structura.be/app/themes/structura/dist/images/logo_wit.png" alt="Structura" class="img-responsive">
+</figure>
+</div>
+<div class="col-sm-4">
+<div class="contactinfo">
+<a href="tel:+3224608046">T 02 460 80 46</a> &mdash; <a href="mailto:info@structura.be">info@structura.be</a>
+</div>
+</div>
+<div class="col-sm-4">
+<div class="footer-links">
+<a href="https://www.immoscoop.be/" class="immoscoop" target="_blank">
+<img src="http://www.structura.be/app/themes/structura/dist/images/immoscoop.png" alt="Immoscoop logo">
+</a>
+<a href="https://www.facebook.com/StructuraResidentieel/" class="fb-icon">
+<span class="fa fa-facebook-official" aria-hidden="true"/>
+</a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<footer id="developer-notice">
+<div class="container-fluid">
+<div class="text-center">
+<p>
+<a href="https://www.structura.be/privacy-policy">Privacy Policy</a> - <a href="https://www.structura.be/cookies">Cookies</a>
+</p>
+
+</div>
+</div>
+</footer>
+<footer id="developer-notice">
+<div class="container-fluid">
+<div class="text-center">
+Designed &amp; Developed by <a href="https://moxyone.be/">MoxyOne</a>
+</div>
+</div>
+</footer>
+
+
+
+
+<div class="cookies">
+<div class="wrapping-content">
+<article>
+<p>
+<p>De website van Structura maakt gebruik van <a href="https://www.structura.be/cookies/" target="_blank" rel="noopener noreferrer">cookies</a> om je gebruikerservaring te verbeteren.</p>
+</p>
+</article>
+<footer>
+<div class="ok btn btn-primary">Aanvaarden</div>
+</footer>
+</div>
+</div>
+
+
+</body>
+</html>
+																																																	

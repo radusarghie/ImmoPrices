@@ -6,6 +6,7 @@ using System;
 using Immo.Repositories.EF.Base;
 using Immo.Database;
 using System.Net;
+using System.IO;
 
 namespace Immo.Services.PropertyWebsiteParser
 {
@@ -42,6 +43,15 @@ namespace Immo.Services.PropertyWebsiteParser
             return properties;
         }
 
+        protected string SavePicture(Property property, string pictureUrl, string rootFolder)
+        {
+            var utcNow = DateTime.UtcNow;
+            var dateFolder = $"{utcNow.Year}-{utcNow.Month}-{utcNow.Day}";
+            var timeStamp = $"{utcNow.Hour}:{utcNow.Minute}:{utcNow.Second}:{utcNow.Millisecond}";
+            var fileName = $"{property.Id}_{timeStamp}_{pictureUrl}";
+            var fullFileName = $"{dateFolder}\\{fileName}";
+            return fullFileName;
+        }
     
     }
 }

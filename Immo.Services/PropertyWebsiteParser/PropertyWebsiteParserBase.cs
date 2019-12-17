@@ -41,5 +41,7 @@ namespace Immo.Services.PropertyWebsiteParser
 
             return properties;
         }
+
+    
     }
 }

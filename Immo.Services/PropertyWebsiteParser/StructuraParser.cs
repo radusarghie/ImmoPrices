@@ -1,10 +1,13 @@
-﻿using Immo.Domain.BusinessDomain;
+﻿using AngleSharp;
+using Immo.Domain.BusinessDomain;
 using Immo.Services.PropertyWebsiteParser;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Immo.Logic.PropertyWebsiteParser
 {
@@ -12,6 +15,8 @@ namespace Immo.Logic.PropertyWebsiteParser
     {
         protected override Property GetPropertyFromDetailsHtml(string html)
         {
+            var document = BrowsingContext.New(Configuration.Default.WithDefaultLoader()).OpenAsync(req => req.Content(html)).Result;
+
             var property = new Property();
 
             return property;
@@ -19,14 +24,24 @@ namespace Immo.Logic.PropertyWebsiteParser
 
         protected override IEnumerable<string> GetPropertiesHtmls(string baseUrl)
         {
-            var properyUrls = new List<string>();
-            using (WebClient client = new WebClient()) // WebClient class inherits IDisposable
+            string listContent;
+            using (WebClient client = new WebClient())
             {
-                string html = client.DownloadString(baseUrl);
+                listContent = client.DownloadString(baseUrl);
             }
-
-            return properyUrls;
-
+            var document = BrowsingContext.New(Configuration.Default.WithDefaultLoader()).OpenAsync(req => req.Content(listContent)).Result;
+            var links = document.QuerySelectorAll("figure a").Select(p=>p.Attributes["href"].Value);
+            var propertyHtmls = new ConcurrentBag<string>();
+            Parallel.ForEach(links, (link) =>
+             {
+                 using (WebClient client = new WebClient())
+                 {
+                     propertyHtmls.Add(client.DownloadString(baseUrl));
+                 }
+             });
+           
+            return propertyHtmls;
+           
         }
 
         protected override string GetSearchUrl(Search search, PropertyWebsite propertyWebsite)

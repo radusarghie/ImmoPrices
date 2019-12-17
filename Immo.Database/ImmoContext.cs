@@ -9,7 +9,7 @@ namespace Immo.Database
     {
         private readonly string connectionString;
 
-        public ImmoContext(DbContextOptions<ImmoContext> options) : base(options)
+        public ImmoContext(DbContextOptions<ImmoContext> options = null) : base(options)
         {
         }
 
@@ -17,12 +17,10 @@ namespace Immo.Database
         {
             this.connectionString = connectionString;
         }
-        public DbSet<Address> Addresses { get; set; }
         public DbSet<Country> Countries { get; set; }
         public DbSet<Province> Provinces { get; set; }
         public DbSet<Town> Towns { get; set; }
         public DbSet<PropertyWebsite> PropertyWebsites { get; set; }
-        public DbSet<HtmlPagedResult> HtmlPagedResults { get; set; }
         public DbSet<Property> Properties { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Search> Searches { get; set; }
@@ -45,7 +43,7 @@ namespace Immo.Database
 
     public class ImmoContextFactory : IDesignTimeDbContextFactory<ImmoContext>
     {
-        public ImmoContext CreateDbContext(string[] args)
+        public ImmoContext CreateDbContext(string[] args = null)
         {
             var optionsBuilder = new DbContextOptionsBuilder<ImmoContext>();
             optionsBuilder.UseSqlServer("Data Source=.\\SQLEXPRESS;Database=Immo;Integrated Security=True;Connect Timeout=30;MultipleActiveResultSets=true");

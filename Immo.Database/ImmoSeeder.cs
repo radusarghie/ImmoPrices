@@ -1,5 +1,6 @@
 ﻿using Immo.Domain.BusinessDomain;
 using Immo.Logic;
+using Immo.Logic.SeedData;
 using System;
 using System.Collections.Generic;
 using System.Linq;

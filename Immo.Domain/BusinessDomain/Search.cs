@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using static Immo.Domain.Enums;
 
 namespace Immo.Domain.BusinessDomain
 {
@@ -12,6 +13,8 @@ namespace Immo.Domain.BusinessDomain
         public int? MinRoomsNo { get; set; }
 
         public int? MaxRoomsNo { get; set; }
+
+        public PropertyTypeEnum? PropertyType { get; set; }
 
         #region links
         public List<SearchLocation> SeachLocations { get; set; }

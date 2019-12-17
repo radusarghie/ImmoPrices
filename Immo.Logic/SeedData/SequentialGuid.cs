@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Immo.Logic
+namespace Immo.Logic.SeedData
 {
     public class SequentialGuid
     {

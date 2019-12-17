@@ -5,12 +5,10 @@ using System.Text;
 
 namespace Immo.Domain.BusinessDomain
 {
-    public class Entity<IdType> : IEntity<IdType>, ISupportsLogicalDelete, ISupportsHistory
+    public class Entity<IdType> : IEntity<IdType>, ISupportsHistory
     {
         public IdType Id { get; set; }
       
-        public bool IsDeleted { get; set; }
-
         public DateTime CreationDate { get; set; }
 
 

@@ -12,7 +12,6 @@ namespace Immo.Database.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    IsDeleted = table.Column<bool>(nullable: false),
                     CreationDate = table.Column<DateTime>(nullable: false),
                     Name = table.Column<string>(nullable: true)
                 },
@@ -26,7 +25,6 @@ namespace Immo.Database.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    IsDeleted = table.Column<bool>(nullable: false),
                     CreationDate = table.Column<DateTime>(nullable: false),
                     WebsiteRootUrl = table.Column<string>(nullable: true),
                     WebsitePropertyUrl = table.Column<string>(nullable: true),
@@ -42,7 +40,6 @@ namespace Immo.Database.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    IsDeleted = table.Column<bool>(nullable: false),
                     CreationDate = table.Column<DateTime>(nullable: false),
                     UserName = table.Column<string>(nullable: true)
                 },
@@ -56,7 +53,6 @@ namespace Immo.Database.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    IsDeleted = table.Column<bool>(nullable: false),
                     CreationDate = table.Column<DateTime>(nullable: false),
                     Name = table.Column<string>(nullable: true),
                     CountryId = table.Column<Guid>(nullable: false)
@@ -73,24 +69,46 @@ namespace Immo.Database.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "HtmlPagedResults",
+                name: "Searches",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    IsDeleted = table.Column<bool>(nullable: false),
                     CreationDate = table.Column<DateTime>(nullable: false),
-                    Html = table.Column<string>(nullable: true),
-                    PageNumber = table.Column<int>(nullable: false),
-                    PageSize = table.Column<int>(nullable: false),
-                    PropertyWebsiteId = table.Column<Guid>(nullable: false)
+                    MinPrice = table.Column<decimal>(nullable: true),
+                    MaxPrice = table.Column<decimal>(nullable: true),
+                    MinRoomsNo = table.Column<int>(nullable: true),
+                    MaxRoomsNo = table.Column<int>(nullable: true),
+                    PropertyType = table.Column<int>(nullable: true),
+                    UserId = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_HtmlPagedResults", x => x.Id);
+                    table.PrimaryKey("PK_Searches", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_HtmlPagedResults_PropertyWebsites_PropertyWebsiteId",
-                        column: x => x.PropertyWebsiteId,
-                        principalTable: "PropertyWebsites",
+                        name: "FK_Searches_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Towns",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    CreationDate = table.Column<DateTime>(nullable: false),
+                    PostCode = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: true),
+                    ProvinceId = table.Column<Guid>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Towns", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Towns_Provinces_ProvinceId",
+                        column: x => x.ProvinceId,
+                        principalTable: "Provinces",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -100,9 +118,9 @@ namespace Immo.Database.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    IsDeleted = table.Column<bool>(nullable: false),
                     CreationDate = table.Column<DateTime>(nullable: false),
                     PropertyType = table.Column<int>(nullable: true),
+                    AddType = table.Column<int>(nullable: false),
                     ConstructionYear = table.Column<int>(nullable: true),
                     BedroomsNo = table.Column<int>(nullable: true),
                     FloorNo = table.Column<int>(nullable: true),
@@ -122,6 +140,11 @@ namespace Immo.Database.Migrations
                     Pictures = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     OriginalURL = table.Column<string>(nullable: true),
+                    Street = table.Column<string>(nullable: true),
+                    Number = table.Column<string>(nullable: true),
+                    Latitude = table.Column<double>(nullable: true),
+                    Longitude = table.Column<double>(nullable: true),
+                    TownId = table.Column<Guid>(nullable: true),
                     PropertyWebsiteId = table.Column<Guid>(nullable: true)
                 },
                 constraints: table =>
@@ -133,83 +156,12 @@ namespace Immo.Database.Migrations
                         principalTable: "PropertyWebsites",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Searches",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(nullable: false),
-                    IsDeleted = table.Column<bool>(nullable: false),
-                    CreationDate = table.Column<DateTime>(nullable: false),
-                    MinPrice = table.Column<decimal>(nullable: true),
-                    MaxPrice = table.Column<decimal>(nullable: true),
-                    MinRoomsNo = table.Column<int>(nullable: true),
-                    MaxRoomsNo = table.Column<int>(nullable: true),
-                    UserId = table.Column<Guid>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Searches", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Searches_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Towns",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(nullable: false),
-                    IsDeleted = table.Column<bool>(nullable: false),
-                    CreationDate = table.Column<DateTime>(nullable: false),
-                    PostCode = table.Column<int>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    ProvinceId = table.Column<Guid>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Towns", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Towns_Provinces_ProvinceId",
-                        column: x => x.ProvinceId,
-                        principalTable: "Provinces",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Addresses",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(nullable: false),
-                    IsDeleted = table.Column<bool>(nullable: false),
-                    CreationDate = table.Column<DateTime>(nullable: false),
-                    Street = table.Column<string>(nullable: true),
-                    Number = table.Column<string>(nullable: true),
-                    Latitude = table.Column<double>(nullable: true),
-                    Longitude = table.Column<double>(nullable: true),
-                    TownId = table.Column<Guid>(nullable: false),
-                    PropertyId = table.Column<Guid>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Addresses", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Addresses_Properties_PropertyId",
-                        column: x => x.PropertyId,
-                        principalTable: "Properties",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Addresses_Towns_TownId",
+                        name: "FK_Properties_Towns_TownId",
                         column: x => x.TownId,
                         principalTable: "Towns",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -217,7 +169,6 @@ namespace Immo.Database.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    IsDeleted = table.Column<bool>(nullable: false),
                     CreationDate = table.Column<DateTime>(nullable: false),
                     SearchId = table.Column<Guid>(nullable: false),
                     TownId = table.Column<Guid>(nullable: false)
@@ -240,25 +191,14 @@ namespace Immo.Database.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Addresses_PropertyId",
-                table: "Addresses",
-                column: "PropertyId",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Addresses_TownId",
-                table: "Addresses",
-                column: "TownId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_HtmlPagedResults_PropertyWebsiteId",
-                table: "HtmlPagedResults",
-                column: "PropertyWebsiteId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Properties_PropertyWebsiteId",
                 table: "Properties",
                 column: "PropertyWebsiteId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Properties_TownId",
+                table: "Properties",
+                column: "TownId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Provinces_CountryId",
@@ -289,25 +229,19 @@ namespace Immo.Database.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Addresses");
-
-            migrationBuilder.DropTable(
-                name: "HtmlPagedResults");
+                name: "Properties");
 
             migrationBuilder.DropTable(
                 name: "SearchLocations");
 
             migrationBuilder.DropTable(
-                name: "Properties");
+                name: "PropertyWebsites");
 
             migrationBuilder.DropTable(
                 name: "Searches");
 
             migrationBuilder.DropTable(
                 name: "Towns");
-
-            migrationBuilder.DropTable(
-                name: "PropertyWebsites");
 
             migrationBuilder.DropTable(
                 name: "Users");

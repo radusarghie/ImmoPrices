@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Immo.Logic
+namespace Immo.Logic.SeedData
 {
     public static class SeedValues
     {
@@ -62,7 +62,7 @@ namespace Immo.Logic
             {
                 Id = SequentialGuid++.CurrentGuid,
                 Name = "Wemmel",
-                Zip = "1780",
+                PostCode = "1780",
                 ProvinceId = Provinces.FlemishBrabant.Id,
                 CreationDate = DateTime.UtcNow
             };
@@ -71,7 +71,7 @@ namespace Immo.Logic
             {
                 Id = SequentialGuid++.CurrentGuid,
                 Name = "Iasi",
-                Zip = "700303",
+                PostCode = "700303",
                 ProvinceId = Provinces.Iasi.Id,
                 CreationDate = DateTime.UtcNow
             };
@@ -83,7 +83,7 @@ namespace Immo.Logic
             {
                 Id = SequentialGuid++.CurrentGuid,
                 Name = "Structura",
-                WebsitePropertyUrl = @"http://www.structura.be/kopen/?zips={1}&WebID={2}&priceTo={3}&minRooms={4}",
+                WebsitePropertyUrl = @"http://www.structura.be",
                 WebsiteRootUrl = @"http://www.structura.be/",
                 CreationDate = DateTime.UtcNow
             };
@@ -134,18 +134,11 @@ namespace Immo.Logic
                 ParkingPlaces = 0,
                 Price = 200000,
                 PropertyType = Domain.Enums.PropertyTypeEnum.Apartment,
-                
-                Address = new Address
-                {
-                    Id = SequentialGuid++.CurrentGuid,
-                    CreationDate = DateTime.UtcNow,
-                    Town = Towns.Wemmel,
-                    Street = "Eburonenlaan",
-                    Number = "5",
-                    Latitude = 50.9009335,
-                    Longitude = 4.3292941
-
-                },
+                Town = Towns.Wemmel,
+                Street = "Eburonenlaan",
+                Number = "5",
+                Latitude = 50.9009335,
+                Longitude = 4.3292941,
                 AddType = Domain.Enums.AddyTypeEnum.ForSale
             };
         }

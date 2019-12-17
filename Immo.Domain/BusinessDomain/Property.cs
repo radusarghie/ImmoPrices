@@ -48,11 +48,20 @@ namespace Immo.Domain.BusinessDomain
 
         public string OriginalURL { get; set; }
 
+        public string Street { get; set; }
+
+        public string Number { get; set; }
+
+        public double? Latitude { get; set; }
+
+        public double? Longitude { get; set; }
+
         #region Links
 
-        public PropertyWebsite PropertyWebsite { get; set; }
+        public Guid? TownId { get; set; }
 
-        public Address Address { get; set; }
+        public Town Town { get; set; }
+        public PropertyWebsite PropertyWebsite { get; set; }
 
         #endregion
     }

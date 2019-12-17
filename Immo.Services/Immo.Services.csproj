@@ -6,7 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AngleSharp" Version="0.13.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Immo.Database\Immo.Database.csproj" />
+    <ProjectReference Include="..\Immo.Logic\Immo.Logic.csproj" />
+    <ProjectReference Include="..\Immo.Repositories\Immo.Repositories.csproj" />
   </ItemGroup>
 
 </Project>

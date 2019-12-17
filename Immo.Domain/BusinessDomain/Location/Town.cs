@@ -4,11 +4,9 @@ namespace Immo.Domain.BusinessDomain
 {
     public class Town : Entity<Guid>
     {
-        public int PostCode { get; set; }
+        public string PostCode { get; set; }
 
         public string Name { get; set; }
-
-        public string Zip { get; set; }
 
         #region Links
         public Guid ProvinceId { get; set; }

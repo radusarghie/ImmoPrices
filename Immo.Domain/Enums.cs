@@ -8,7 +8,6 @@ namespace Immo.Domain
         { 
             Apartment = 10,
             House = 20,
-            Ground = 30
         }
 
         public enum AddyTypeEnum

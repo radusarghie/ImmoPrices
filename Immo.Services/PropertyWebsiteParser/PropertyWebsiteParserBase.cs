@@ -9,6 +9,7 @@ using System.Net;
 using System.IO;
 using System.Collections.Concurrent;
 using System.Threading.Tasks;
+using AngleSharp.Dom;
 
 namespace Immo.Services.PropertyWebsiteParser
 {
@@ -86,5 +87,7 @@ namespace Immo.Services.PropertyWebsiteParser
 
             return stringValue;
         }
+
+        protected abstract T GetPropertyElement<T>(IDocument document, string label, string stringToRemove = null);
     }
 }

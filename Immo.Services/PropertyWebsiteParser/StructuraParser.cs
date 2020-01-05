@@ -32,7 +32,7 @@ namespace Immo.Logic.PropertyWebsiteParser
             property.Description = document.QuerySelector("div.main-content div.content p").TextContent;
             property.Surface = GetPropertyElement<double?>(document, "BEWOONBARE OPPERVLAKTE", "m2"); ;
             property.Number = null;
-            property.Pictures = null;
+            property.Pictures = String.Join(",", document.QuerySelectorAll("section.property-slider a")?.Select(p => p.Attributes["href"]?.Value));
             property.Price = ChangeType<double?>(document.QuerySelector("span.property-price").TextContent.Replace("€", string.Empty).Trim());
             property.Street = null;
             property.TownId = search.TownId;
@@ -91,7 +91,7 @@ namespace Immo.Logic.PropertyWebsiteParser
             return result;
         }
 
-        private  T GetPropertyElement<T>(IDocument document, string label, string stringToRemove = null) 
+        protected  T GetPropertyElement<T>(IDocument document, string label, string stringToRemove = null) 
         {
             var attributeTable = document.QuerySelector("table.attribute-table");
             var stringValue = attributeTable.QuerySelectorAll("tr")

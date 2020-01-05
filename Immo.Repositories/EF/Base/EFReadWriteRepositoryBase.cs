@@ -23,7 +23,7 @@ namespace Immo.Repositories.EF.Base
                 }
                 else 
                 {
-                    DbContext.Set<EntityType>().AddRange(entities);
+                    DbContext.Set<EntityType>().Add(entity);
                 }
             }
           

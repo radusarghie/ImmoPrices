@@ -4,23 +4,29 @@ dotnet ef migrations add Init
 
 dotnet ef database update
 
-delete from Addresses
-delete from Properties
-delete from PropertyWebsites
-delete from Towns
-delete from Provinces
-delete from Countries
-delete from SearchLocations
-delete from Searches
-delete from Users
-delete from __EFMigrationsHistory
+DELETE FROM Properties Where Id NOT IN ('00000000-0000-0000-0000-000000000011', '00000000-0000-0000-0000-000000000012')
 
-drop table Addresses
-drop table PropertyWebsites
-drop table Towns
-drop table Provinces
-drop table Countries
-drop table SearchLocations
-drop table Searches
-drop table Users
-drop table __EFMigrationsHistory
+
+WITH CTE(Id, 
+    CreationDate, 
+    OriginalUrl, 
+    duplicatecount)
+AS (SELECT Id, 
+           CreationDate, 
+           OriginalUrl, 
+           ROW_NUMBER() OVER(PARTITION BY originalUrl
+           ORDER BY CreationDate DESC) AS DuplicateCount
+    FROM Properties)
+DELETE FROM CTE where originalUrl is not null and duplicatecount >1 ;
+
+WITH CTE2(Id, 
+    CreationDate, 
+    OriginalUrl, 
+    duplicatecount)
+AS (SELECT Id, 
+           CreationDate, 
+           OriginalUrl, 
+           ROW_NUMBER() OVER(PARTITION BY originalUrl
+           ORDER BY CreationDate DESC) AS DuplicateCount
+    FROM Properties)
+SELECT * FROM CTE2 where originalUrl is not null order by originalUrl, CreationDate desc, id;

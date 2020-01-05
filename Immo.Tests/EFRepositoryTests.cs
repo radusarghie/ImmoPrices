@@ -23,9 +23,9 @@ namespace Immo.Tests
 
                 var propertiesRepository = new EFReadOnlyRepositoryBase<Property, Guid>(context);
                 var properties = propertiesRepository.GetAll();
-                var firstProperty = propertiesRepository.GetByIds(new List<Guid> { SeedValues.Properties.MyApartment.Id }).FirstOrDefault();
+                var firstProperty = propertiesRepository.GetByIds(new List<Guid> { SeedValues.Properties.MyApartmentWemmel.Id }).FirstOrDefault();
                 Assert.True(properties.Count() == 1);
-                Assert.True(properties.First().Id == SeedValues.Properties.MyApartment.Id);
+                Assert.True(properties.First().Id == SeedValues.Properties.MyApartmentWemmel.Id);
                 Assert.True(firstProperty.Id == properties.FirstOrDefault().Id);
             }
         }
@@ -39,7 +39,7 @@ namespace Immo.Tests
                 new ImmoSeeder(context).Seed();
 
                 var propertiesRepository = new EFReadWriteRepositoryBase<Property, Guid>(context);
-                propertiesRepository.DeleteByIds(new List<Guid> { SeedValues.Properties.MyApartment.Id });
+                propertiesRepository.DeleteByIds(new List<Guid> { SeedValues.Properties.MyApartmentWemmel.Id });
                 context.SaveChanges();
                 Assert.True(propertiesRepository.GetAll().Count() == 0);
                
@@ -55,21 +55,21 @@ namespace Immo.Tests
                 new ImmoSeeder(context).Seed();
 
                 var propertiesRepository = new EFReadWriteRepositoryBase<Property, Guid>(context);
-                propertiesRepository.DeleteById(SeedValues.Properties.MyApartment.Id );
+                propertiesRepository.DeleteById(SeedValues.Properties.MyApartmentWemmel.Id );
                 context.SaveChanges();
 
                 Assert.True(propertiesRepository.GetAll().Count() == 0);
-                propertiesRepository.CreateOrUpdate( SeedValues.Properties.MyApartment );
+                propertiesRepository.CreateOrUpdate( SeedValues.Properties.MyApartmentWemmel);
 
                 var properties = propertiesRepository.GetAll();
-                var myApartment = propertiesRepository.GetById(SeedValues.Properties.MyApartment.Id);
+                var myApartment = propertiesRepository.GetById(SeedValues.Properties.MyApartmentWemmel.Id);
                 Assert.True(properties.Count() == 1);
-                Assert.True(myApartment.Id == SeedValues.Properties.MyApartment.Id);
+                Assert.True(myApartment.Id == SeedValues.Properties.MyApartmentWemmel.Id);
 
                 myApartment.OriginalURL = "test";
                 propertiesRepository.CreateOrUpdate( myApartment );
 
-                var myApartmentAfterUpdate = propertiesRepository.GetById( SeedValues.Properties.MyApartment.Id );
+                var myApartmentAfterUpdate = propertiesRepository.GetById( SeedValues.Properties.MyApartmentWemmel.Id );
                 Assert.True(myApartmentAfterUpdate.OriginalURL == myApartment.OriginalURL);
 
             }

@@ -25,16 +25,15 @@ namespace Immo.Database
 
             SeedUsers(immoContext);
 
+            immoContext.SaveChanges();
             SeedCountries(immoContext);
-
-            SeedProvinces(immoContext);
-
+            immoContext.SaveChanges();
             SeedTowns(immoContext);
-
+            immoContext.SaveChanges();
             SeedPropertyWebsites(immoContext);
-
+            immoContext.SaveChanges();
             SeedSearches(immoContext);
-
+            immoContext.SaveChanges();
             SeedProperties(immoContext);
 
             immoContext.SaveChanges();
@@ -42,13 +41,22 @@ namespace Immo.Database
 
         private void SeedProperties(ImmoContext immoContext)
         {
-            if (!immoContext.Properties.Any(p => p.Id == SeedValues.Properties.MyApartment.Id))
+            if (!immoContext.Properties.Any(p => p.Id == SeedValues.Properties.MyApartmentWemmel.Id))
             {
-                immoContext.Properties.Add(SeedValues.Properties.MyApartment);
+                immoContext.Properties.Add(SeedValues.Properties.MyApartmentWemmel);
             }
             else 
             {
-                immoContext.Properties.Update(SeedValues.Properties.MyApartment);
+                immoContext.Properties.Update(SeedValues.Properties.MyApartmentWemmel);
+            }
+
+            if (!immoContext.Properties.Any(p => p.Id == SeedValues.Properties.MyApartmentIasi.Id))
+            {
+                immoContext.Properties.Add(SeedValues.Properties.MyApartmentIasi);
+            }
+            else
+            {
+                immoContext.Properties.Update(SeedValues.Properties.MyApartmentIasi);
             }
 
         }
@@ -96,26 +104,6 @@ namespace Immo.Database
             else 
             {
                 immoContext.Towns.Update(SeedValues.Towns.Iasi);
-            }
-        }
-
-        private void SeedProvinces(ImmoContext immoContext)
-        {
-            if (!immoContext.Provinces.Any(p => p.Id == SeedValues.Provinces.FlemishBrabant.Id))
-            {
-                immoContext.Provinces.Add(SeedValues.Provinces.FlemishBrabant);
-            }
-            else 
-            {
-                immoContext.Provinces.Update(SeedValues.Provinces.FlemishBrabant);
-            }
-            if (!immoContext.Provinces.Any(p => p.Id == SeedValues.Provinces.Iasi.Id))
-            {
-                immoContext.Provinces.Add(SeedValues.Provinces.Iasi);
-            }
-            else
-            {
-                immoContext.Provinces.Update(SeedValues.Provinces.Iasi);
             }
         }
 

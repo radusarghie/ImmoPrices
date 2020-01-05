@@ -18,18 +18,15 @@ namespace Immo.Database
             this.connectionString = connectionString;
         }
         public DbSet<Country> Countries { get; set; }
-        public DbSet<Province> Provinces { get; set; }
         public DbSet<Town> Towns { get; set; }
         public DbSet<PropertyWebsite> PropertyWebsites { get; set; }
         public DbSet<Property> Properties { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Search> Searches { get; set; }
 
-        public DbSet<SearchLocation> SearchLocations { get; set; }
-     
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
+           
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

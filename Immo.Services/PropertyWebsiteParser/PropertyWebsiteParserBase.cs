@@ -7,6 +7,8 @@ using Immo.Repositories.EF.Base;
 using Immo.Database;
 using System.Net;
 using System.IO;
+using System.Collections.Concurrent;
+using System.Threading.Tasks;
 
 namespace Immo.Services.PropertyWebsiteParser
 {
@@ -14,10 +16,17 @@ namespace Immo.Services.PropertyWebsiteParser
     {
         protected abstract string GetSearchUrl(Search search, PropertyWebsite propertyWebsite);
 
-        protected abstract Dictionary<string, string> GetPropertiesHtmls(string baseUrl);
+        protected abstract Dictionary<string, string> GetPropertiesDetailsHtmls(string baseUrl);
 
         protected abstract Property GetPropertyFromDetailsHtml(string originalUrl, string html, Search search, PropertyWebsite propertyWebsite);
 
+        protected IImmoCache ImmoCache { get; }
+
+        public PropertyWebsiteParserBase(IImmoCache immoCache)
+        {
+            this.ImmoCache = immoCache;
+        
+        }
         protected IEnumerable<Property> SaveProperties(IEnumerable<Property> properties)
         {
             using (ImmoContext dbContext = new ImmoContextFactory().CreateDbContext())
@@ -34,11 +43,18 @@ namespace Immo.Services.PropertyWebsiteParser
 
             var url = GetSearchUrl(search, propertyWebsite);
 
-            var propertiesHtmls = GetPropertiesHtmls(url);
+            var propertiesHtmls = GetPropertiesDetailsHtmls(url);
+            ConcurrentBag<Property> propertiesBag = new ConcurrentBag<Property>();
+            Parallel.ForEach(propertiesHtmls, (currentProperty) =>
+            {
+                var curentProperty = GetPropertyFromDetailsHtml(currentProperty.Key, currentProperty.Value, search, propertyWebsite);
+                propertiesBag.Add(curentProperty);
+                
+               
+            });
 
-            var properties = propertiesHtmls.Select(p => GetPropertyFromDetailsHtml(p.Key, p.Value, search, propertyWebsite));
 
-            //properties = SaveProperties(properties);
+            var properties = SaveProperties(propertiesBag.ToList());
 
             return properties;
         }
@@ -46,12 +62,29 @@ namespace Immo.Services.PropertyWebsiteParser
         protected string SavePicture(Property property, string pictureUrl, string rootFolder)
         {
             var utcNow = DateTime.UtcNow;
-            var dateFolder = $"{utcNow.Year}-{utcNow.Month}-{utcNow.Day}";
+            var dateFolder = $"{utcNow.Year}.{utcNow.Month}.{utcNow.Day}";
             var timeStamp = $"{utcNow.Hour}:{utcNow.Minute}:{utcNow.Second}:{utcNow.Millisecond}";
             var fileName = $"{property.Id}_{timeStamp}_{pictureUrl}";
             var fullFileName = $"{dateFolder}\\{fileName}";
             return fullFileName;
         }
-    
+
+        protected T ChangeType<T>(string stringValue)
+        {
+            Type t = Nullable.GetUnderlyingType(typeof(T)) ?? typeof(T);
+
+            var result = (T)Convert.ChangeType(stringValue, t);
+            return result;
+        }
+
+        protected string RemoveFormatting(string stringValue)
+        {
+            stringValue = stringValue.Replace("<strong>", string.Empty);
+            stringValue = stringValue.Replace("</strong>", string.Empty);
+            stringValue = stringValue.Replace("\"", string.Empty);
+            stringValue = stringValue.Trim();
+
+            return stringValue;
+        }
     }
 }

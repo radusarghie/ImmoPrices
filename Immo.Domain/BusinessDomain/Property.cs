@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 using static Immo.Domain.Enums;
 
 namespace Immo.Domain.BusinessDomain
@@ -16,15 +17,7 @@ namespace Immo.Domain.BusinessDomain
 
         public int? BathroomNo { get; set; }
 
-        public int? Garrages { get; set; }
-
-        public int? ParkingPlaces { get; set; }
-
         public double? Surface { get; set; }
-
-        public bool? HasTerrace { get; set; }
-
-        public bool? HasGarden { get; set; }
 
         public double? Price { get; set; }
 
@@ -42,10 +35,12 @@ namespace Immo.Domain.BusinessDomain
 
         #region Links
 
-        public Guid? TownId { get; set; }
+        public Guid TownId { get; set; }
 
-        public Town Town { get; set; }
-        public PropertyWebsite PropertyWebsite { get; set; }
+        public Guid PropertyWebsiteId { get; set; }
+
+        public Guid SearchId { get; set; }
+
 
         #endregion
     }

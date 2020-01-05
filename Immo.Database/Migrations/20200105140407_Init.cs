@@ -49,50 +49,6 @@ namespace Immo.Database.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Provinces",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(nullable: false),
-                    CreationDate = table.Column<DateTime>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    CountryId = table.Column<Guid>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Provinces", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Provinces_Countries_CountryId",
-                        column: x => x.CountryId,
-                        principalTable: "Countries",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Searches",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(nullable: false),
-                    CreationDate = table.Column<DateTime>(nullable: false),
-                    MinPrice = table.Column<decimal>(nullable: true),
-                    MaxPrice = table.Column<decimal>(nullable: true),
-                    MinRoomsNo = table.Column<int>(nullable: true),
-                    MaxRoomsNo = table.Column<int>(nullable: true),
-                    PropertyType = table.Column<int>(nullable: true),
-                    UserId = table.Column<Guid>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Searches", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Searches_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Towns",
                 columns: table => new
                 {
@@ -100,15 +56,15 @@ namespace Immo.Database.Migrations
                     CreationDate = table.Column<DateTime>(nullable: false),
                     PostCode = table.Column<string>(nullable: true),
                     Name = table.Column<string>(nullable: true),
-                    ProvinceId = table.Column<Guid>(nullable: false)
+                    CountryId = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Towns", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Towns_Provinces_ProvinceId",
-                        column: x => x.ProvinceId,
-                        principalTable: "Provinces",
+                        name: "FK_Towns_Countries_CountryId",
+                        column: x => x.CountryId,
+                        principalTable: "Countries",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -123,29 +79,18 @@ namespace Immo.Database.Migrations
                     AddType = table.Column<int>(nullable: false),
                     ConstructionYear = table.Column<int>(nullable: true),
                     BedroomsNo = table.Column<int>(nullable: true),
-                    FloorNo = table.Column<int>(nullable: true),
                     BathroomNo = table.Column<int>(nullable: true),
-                    Garrages = table.Column<int>(nullable: true),
-                    ParkingPlaces = table.Column<int>(nullable: true),
-                    LivableSurface = table.Column<double>(nullable: true),
-                    GroundSurface = table.Column<double>(nullable: true),
-                    HasTerrace = table.Column<bool>(nullable: true),
-                    HasGarden = table.Column<bool>(nullable: true),
-                    Bedroom1Surface = table.Column<double>(nullable: true),
-                    Bedroom2Surface = table.Column<double>(nullable: true),
-                    Bedroom3Surface = table.Column<double>(nullable: true),
-                    Bedroom4Surface = table.Column<double>(nullable: true),
+                    Surface = table.Column<double>(nullable: true),
                     Price = table.Column<double>(nullable: true),
-                    EPC = table.Column<int>(nullable: true),
                     Pictures = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
+                    Title = table.Column<string>(nullable: true),
                     OriginalURL = table.Column<string>(nullable: true),
                     Street = table.Column<string>(nullable: true),
                     Number = table.Column<string>(nullable: true),
-                    Latitude = table.Column<double>(nullable: true),
-                    Longitude = table.Column<double>(nullable: true),
-                    TownId = table.Column<Guid>(nullable: true),
-                    PropertyWebsiteId = table.Column<Guid>(nullable: true)
+                    TownId = table.Column<Guid>(nullable: false),
+                    PropertyWebsiteId = table.Column<Guid>(nullable: false),
+                    SearchId = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -155,37 +100,49 @@ namespace Immo.Database.Migrations
                         column: x => x.PropertyWebsiteId,
                         principalTable: "PropertyWebsites",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Properties_Towns_TownId",
                         column: x => x.TownId,
                         principalTable: "Towns",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "SearchLocations",
+                name: "Searches",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
                     CreationDate = table.Column<DateTime>(nullable: false),
-                    SearchId = table.Column<Guid>(nullable: false),
+                    Name = table.Column<string>(nullable: true),
+                    AddType = table.Column<int>(nullable: false),
+                    MinPrice = table.Column<decimal>(nullable: true),
+                    MaxPrice = table.Column<decimal>(nullable: true),
+                    MinRoomsNo = table.Column<int>(nullable: true),
+                    MaxRoomsNo = table.Column<int>(nullable: true),
+                    MinConstructionYear = table.Column<int>(nullable: true),
+                    MaxConstructionYear = table.Column<int>(nullable: true),
+                    MinSurface = table.Column<int>(nullable: true),
+                    MaxSurface = table.Column<int>(nullable: true),
+                    CustomFields = table.Column<string>(nullable: true),
+                    PropertyType = table.Column<int>(nullable: true),
+                    UserId = table.Column<Guid>(nullable: false),
                     TownId = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SearchLocations", x => x.Id);
+                    table.PrimaryKey("PK_Searches", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_SearchLocations_Searches_SearchId",
-                        column: x => x.SearchId,
-                        principalTable: "Searches",
+                        name: "FK_Searches_Towns_TownId",
+                        column: x => x.TownId,
+                        principalTable: "Towns",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_SearchLocations_Towns_TownId",
-                        column: x => x.TownId,
-                        principalTable: "Towns",
+                        name: "FK_Searches_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -201,9 +158,9 @@ namespace Immo.Database.Migrations
                 column: "TownId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Provinces_CountryId",
-                table: "Provinces",
-                column: "CountryId");
+                name: "IX_Searches_TownId",
+                table: "Searches",
+                column: "TownId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Searches_UserId",
@@ -211,19 +168,9 @@ namespace Immo.Database.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_SearchLocations_SearchId",
-                table: "SearchLocations",
-                column: "SearchId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_SearchLocations_TownId",
-                table: "SearchLocations",
-                column: "TownId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Towns_ProvinceId",
+                name: "IX_Towns_CountryId",
                 table: "Towns",
-                column: "ProvinceId");
+                column: "CountryId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -232,22 +179,16 @@ namespace Immo.Database.Migrations
                 name: "Properties");
 
             migrationBuilder.DropTable(
-                name: "SearchLocations");
+                name: "Searches");
 
             migrationBuilder.DropTable(
                 name: "PropertyWebsites");
-
-            migrationBuilder.DropTable(
-                name: "Searches");
 
             migrationBuilder.DropTable(
                 name: "Towns");
 
             migrationBuilder.DropTable(
                 name: "Users");
-
-            migrationBuilder.DropTable(
-                name: "Provinces");
 
             migrationBuilder.DropTable(
                 name: "Countries");

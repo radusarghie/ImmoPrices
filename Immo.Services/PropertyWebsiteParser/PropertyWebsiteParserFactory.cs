@@ -1,17 +1,18 @@
-﻿using Immo.Domain.BusinessDomain;
+﻿using Immo.Database;
+using Immo.Domain.BusinessDomain;
 
 namespace Immo.Logic.PropertyWebsiteParser
 {
     public static class PropertyWebsiteParserFactory
     {
 
-        public static IPropertyWebsiteParser GetPropertyWebsiteParser(string propertyWebsiteName)
+        public static IPropertyWebsiteParser GetPropertyWebsiteParser(string propertyWebsiteName, IImmoCache cache)
         {
             switch (propertyWebsiteName)
             {
                 case "Structura":
                 {
-                    return new StructuraParser();
+                    return new StructuraParser(cache);
                 }
             }
 

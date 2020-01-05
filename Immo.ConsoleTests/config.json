@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "ImmoConnectionString": "Data Source=.\\SQLEXPRESS;Database=Immo;Integrated Security=True;Connect Timeout=30;MultipleActiveResultSets=true"
+  }
+}

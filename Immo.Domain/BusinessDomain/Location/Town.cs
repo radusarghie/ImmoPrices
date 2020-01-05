@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Immo.Domain.BusinessDomain
 {
@@ -9,9 +11,11 @@ namespace Immo.Domain.BusinessDomain
         public string Name { get; set; }
 
         #region Links
-        public Guid ProvinceId { get; set; }
 
-        public Province Province { get; set; }
+        public Guid CountryId { get; set; }
+        public List<Property> Properties { get; set; }
+
+        public List<Search> Searches { get; set; }
 
         #endregion
     }
